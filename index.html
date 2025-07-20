@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注文書兼見積書アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <div class="title-container">
+            <select id="doc-type">
+                <option value="注文書">注文書</option>
+                <option value="見積書">見積書</option>
+            </select>
+            <h2 id="doc-title">注文書</h2>
+        </div>
+        <header>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <label for="issue-date">日付:</label>
+                    <input type="date" id="issue-date">
+                </div>
+                <div class="meta-item">
+                    <label for="doc-number">番号:</label>
+                    <input type="text" id="doc-number" placeholder="001">
+                </div>
+            </div>
+            <div class="company-info">
+                <div class="company-item">
+                    <label for="customer-name">宛名:</label>
+                    <input type="text" id="customer-name" placeholder="〇〇株式会社 御中">
+                </div>
+                <div class="company-item">
+                    <label for="company-name">自社名:</label>
+                    <input type="text" id="company-name" placeholder="△△木材">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <table id="items-table">
+                <thead>
+                    <tr>
+                        <th>樹種名</th>
+                        <th>規格</th>
+                        <th>本数</th>
+                        <th>単価</th>
+                        <th>金額</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items-body">
+                    <tr>
+                        <td><input type="text" class="item-name" placeholder="例: 杉"></td>
+                        <td><input type="text" class="item-spec" value="H"></td>
+                        <td><input type="number" class="item-quantity" placeholder="0" min="0"></td>
+                        <td><input type="number" class="item-price" placeholder="0" min="0"></td>
+                        <td class="item-subtotal">¥0</td>
+                        <td><button class="btn-remove">×</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="add-row-btn" class="btn-add">＋ 行を追加</button>
+        </main>
+
+        <footer>
+            <div class="totals">
+                <div class="total-item">
+                    <span>合計</span>
+                    <span id="total-amount">¥0</span>
+                </div>
+            </div>
+
+            <div class="shipping-info">
+                <div class="shipping-item">
+                    <label for="ship-to">送り先:</label>
+                    <input type="text" id="ship-to" placeholder="例: 東京都〇〇区…">
+                </div>
+                <div class="shipping-item">
+                    <label for="ship-from">送り主:</label>
+                    <input type="text" id="ship-from" placeholder="例: 自社住所…">
+                </div>
+            </div>
+            <div class="actions">
+                <button id="save-pdf-btn" class="btn-primary">PDF保存</button>
+                <button id="reset-btn" class="btn-secondary">リセット</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PDF生成ライブラリ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

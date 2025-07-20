@@ -1,0 +1,245 @@
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 0; /* bodyのpaddingを削除 */
+}
+
+.title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    margin-top: 12px;
+}
+
+#doc-type {
+    width: 260px;
+    height: 48px;
+    font-size: 1.3rem;
+    margin-bottom: 10px; /* h2との間隔 */
+}
+
+#doc-title {
+    text-align: center;
+    margin: 0; /* デフォルトのマージンをリセット */
+}
+
+#app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ヘッダー */
+header h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+
+
+
+.meta-info, .company-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* スマホ表示で折り返す */
+}
+
+.meta-item, .company-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* スマホ表示用のマージン */
+}
+
+.meta-item label, .company-item label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="date"], input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 200px; /* デフォルトの幅 */
+}
+
+/* テーブル */
+#items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#items-table th, #items-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#items-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+#items-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#items-table input {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+#items-table input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* 送り先・送り主 */
+.shipping-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding: 8px;
+    margin-top: 20px; /* 合計欄との間にスペースを設ける */
+}
+
+.shipping-item {
+    display: flex;
+    align-items: center;
+    width: 48%;
+}
+
+.shipping-item label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.shipping-item input {
+    width: 100%;
+}
+
+/* PDF出力用の送り先・送り主スタイル */
+.shipping-info-pdf {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.shipping-pdf-item {
+    width: 48%;
+}
+
+/* フッター */
+.totals {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.total-item {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.total-item span:first-child {
+    margin-right: 20px;
+}
+
+.actions {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-add, .btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-add {
+    background-color: #2ecc71;
+    color: white;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.btn-add:hover { background-color: #27ae60; }
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover { background-color: #2980b9; }
+
+.btn-secondary {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-secondary:hover { background-color: #c0392b; }
+
+.btn-add:active, .btn-primary:active, .btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    #app-container { padding: 20px; }
+    header h1 { font-size: 1.8em; }
+    .meta-info, .company-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .meta-item, .company-item {
+        width: 100%;
+    }
+    input[type="text"], input[type="date"], input[type="number"] {
+        width: 100%;
+        box-sizing: border-box; /* paddingを含めて幅を100%にする */
+    }
+    #items-table {
+        display: block;
+        overflow-x: auto; /* テーブルがはみ出たらスクロール */
+    }
+    .actions { flex-direction: column; }
+
+    .shipping-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
